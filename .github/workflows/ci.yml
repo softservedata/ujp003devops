@@ -1,0 +1,64 @@
+# This is a basic workflow to help you get started with Actions
+name: Continues Integration
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "contact" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    name: choose VM
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo "Start CI"
+
+      # To get your Ubuntu version from the terminal
+      - name: Ubuntu version
+        run: lsb_release -a
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v7
+
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo "list of files:"
+          ls -al
+
+      # Setup Java
+      - name: Set up JDK 25
+        uses: actions/setup-java@v3
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Java version
+        run: "java -version"
+
+      - name: Javac version
+        run: "javac -version"
+
+      - name: Maven version
+        run: "mvn -v"
+
+      - name: Build war
+        # run: 'mvn -B package -DskipTests -Dcheckstyle.skip'
+        run: "mvn -B package -DskipTests"
+
+      - name: Run Unit Tests
+        run: "mvn -B test"
