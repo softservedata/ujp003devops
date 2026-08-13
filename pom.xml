@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.softserve</groupId>
-    <artifactId>dev</artifactId>
+    <artifactId>contact</artifactId>
     <version>1.0</version>
 
     <packaging>war</packaging>

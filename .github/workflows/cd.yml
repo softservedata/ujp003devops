@@ -73,7 +73,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: ${{ secrets.PORT }}
-          source: "target/dev.war"
+          source: "target/contact.war"
           target: "/home/azureuser/"
           strip_components: 1
 
