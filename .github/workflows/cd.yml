@@ -40,10 +40,10 @@ jobs:
           ls -al
 
       # Setup Java
-      - name: Set up JDK 25
+      - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
-          java-version: '25'
+          java-version: '17'
           distribution: 'temurin'
           cache: maven
 
@@ -75,10 +75,10 @@ jobs:
           target: "/home/azureuser/"
           strip_components: 1
 
-      - name: Copy to tomcat server
-        uses: garygrossgarten/github-action-ssh@release
-        with:
-          command: sudo cp contact.war /usr/apache-tomcat-10.1.13/webapps/ && sudo chown -R azureuser:azureuser /usr/apache-tomcat-10.1.13/webapps/
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER }}
-          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+#      - name: Copy to tomcat server
+#        uses: garygrossgarten/github-action-ssh@release
+#        with:
+#          command: sudo cp contact.war /usr/apache-tomcat-10.1.13/webapps/ && sudo chown -R azureuser:azureuser /usr/apache-tomcat-10.1.13/webapps/
+#          host: ${{ secrets.HOST }}
+#          username: ${{ secrets.USER }}
+#          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
