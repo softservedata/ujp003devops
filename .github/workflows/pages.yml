@@ -38,7 +38,7 @@ jobs:
 
       - name: Update data file 2
         run: |
-         sed -i 's@<title>Form for study case. UJP-1</title>@<title>Form for study case. UJP-1-${{ vars.MY_NAME }}</title>@g' index.html
+         sed -i 's/Form for study case. UJP-1/${{ vars.MY_NAME }}/g' index.html
          cat index.html
 
       - name: Upload artifact
