@@ -127,7 +127,7 @@ workspace.xml
 /**/frontend/*.png
 /**/frontend/*.json
 /**/frontend/*.ico
-/**/frontend/*.html
+#/**/frontend/*.html
 /**/frontend/robots.txt
 
 # Ignore binary
@@ -147,7 +147,7 @@ workspace.xml
 *.png
 #*.jpg
 *.jpeg
-*.html
+#*.html
 
 # Ignore doc/notes.txt, but not doc/info/arch.txt
 # doc/*.txt
